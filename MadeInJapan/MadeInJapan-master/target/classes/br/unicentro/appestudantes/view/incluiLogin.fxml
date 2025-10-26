@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.unicentro.appestudantes.controller.IncluiLoginController">
+    <children>
+        <Label fx:id="lblNomeUsuario" />
+        <BorderPane prefHeight="150.0" prefWidth="570.0">
+            <right>
+                <ImageView fitHeight="180.0" fitWidth="337.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                    <image>
+                        <Image url="Captura de tela 2025-10-25 183423.jpg" />
+                    </image>
+                </ImageView>
+            </right>
+            <left>
+                <Label fx:id="lblNomeTela" alignment="CENTER_RIGHT" text="Seja Bem-vindo!" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Georgia" size="40.0" />
+                    </font>
+                </Label>
+            </left>
+        </BorderPane>
+        <Label text="Coloque o seu nome:">
+            <font>
+                <Font size="15.0" />
+            </font>
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+        </Label>
+        <TextField fx:id="txtNomEst" prefHeight="25.0" prefWidth="547.0" />
+        <HBox prefHeight="37.0" prefWidth="600.0" spacing="10.0">
+            <children>
+                <Button fx:id="btnConf" onAction="#btnConfOnAction" prefHeight="37.0" prefWidth="74.0" text="Confirmar">
+                    <padding>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#btnVoltarOnAction" prefHeight="37.0" prefWidth="74.0" text="Voltar" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="30.0" />
+    </padding>
+</VBox>

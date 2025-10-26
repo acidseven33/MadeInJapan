@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.unicentro.appestudantes.controller.HomeController">
+
+    <top>
+        <ToolBar>
+            <Label text="🏠 Loja de Carros JDM" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnFavoritos" text="⭐ Ver Favoritos" onAction="#abrirFavoritos"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <ListView fx:id="listViewCarros" prefHeight="400" prefWidth="600"/>
+    </center>
+
+</BorderPane>
