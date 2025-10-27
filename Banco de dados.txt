@@ -1,0 +1,57 @@
+Banco de dados:
+
+CREATE TABLE Usuario (
+    usuario_id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,L
+);
+
+INSERT INTO Usuario (nome, email) VALUES
+('Eduardo'),
+('Gustavo');
+
+CREATE TABLE Carro (
+    chassi_id SERIAL PRIMARY KEY,
+    Marca VARCHAR(20) NOT NULL,
+    Modelo VARCHAR(30) NOT NULL UNIQUE,
+    AnoCarro INT NOT NULL,
+    ValorCarro DECIMAL(10,2) NOT NULL,
+    ListID INT,
+    CONSTRAINT FK_LIST FOREIGN KEY (ListID) REFERENCES Lista
+        ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+
+INSERT INTO Carro (Marca, Modelo, AnoCarro, ValorCarro) VALUES
+('Toyota','Trueno Sprinter Trueno AE86',1983,20000),
+('Toyota','Chaser',1977,30000),
+('Toyota','Supra',1978,57000),
+('Toyota','Land Cruiser 70',1984,20000),
+('Nissan','Skyline R32',1989,50000),
+('Nissan','Silvia',1988,15000),
+('Nissan','Fairlady Z',1969,42970),
+('Nissan','180SX',1983,42000),
+('Mazda','RX-7',1991,27841),
+('Mazda','MX-5 Miata',2005,19000),
+('Mazda','RX-8',2012,20000),
+('Mazda','Familia GT-X',1990,9888);
+
+CREATE TABLE Lista (
+    lista_id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    usuario_id INT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+INSERT INTO Lista (nome, usuario_id) VALUES
+('Coleção Toyota', 1),
+('Coleção Nissan', 1),
+('Coleção Mazda', 2);
+
+SELECT cj.nomeFantasia, SUM(va.valorTotal)
+FROM clienteJuridico cj JOIN venda va ON va.clienteid = cj.clienteid
+GROUP BY 1
+
+HAVING SUM(va.valorTotal) >(SELECT SUM (va.valorTotal)
+	FROM clienteFisico cf JOIN venda va
+	ON cf.clienteid =va.clienteid)
